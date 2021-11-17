@@ -30,11 +30,11 @@ window.addEventListener('scroll', function () {
 const swiper = new Swiper('.swiper-container', {
   slidesPerView: 1,
   pagination: {
-    el: '.swiper-pagination'
+    el: '.swiper-pagination',
   },
 
   mousewheel: true,
-  keyboard: true
+  keyboard: true,
 })
 
 /* Scroll Reveal */
@@ -42,7 +42,7 @@ const scrollReveal = new ScrollReveal({
   origin: 'top',
   distance: '30px',
   duration: 700,
-  reset: true
+  reset: true,
 })
 
 scrollReveal.reveal(
@@ -50,6 +50,16 @@ scrollReveal.reveal(
   #about .image, #about .text,
   #services header, #services .card,
   #testimonials header, #testimonials .testimonials,
-  #contact .text, #contact .links`,
+  #contact .text, #contact .links, footer .brand, footer .social`,
   { interval: 100 }
 )
+
+/* Back to top button */
+const backToTopButton = document.querySelector('.back-to-top')
+window.addEventListener('scroll', function () {
+  if (window.scrollY >= 560) {
+    backToTopButton.classList.add('show')
+  } else {
+    backToTopButton.classList.remove('show')
+  }
+})
